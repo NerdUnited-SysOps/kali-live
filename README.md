@@ -1,5 +1,10 @@
 # Kali Live Build
 
+# Prepare environment and install dependencies
+sudo apt update
+sudo apt install -y git live-build simple-cdd cdebootstrap curl
+git clone https://github.com/caseynielson/kali-live.git
+
 Create ceremony os build iso
 
 
