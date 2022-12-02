@@ -15,5 +15,10 @@ kali-desktop-live
 # Graphical desktop
 kali-desktop-xfce
 
-# Kali applications
-#<package>
+# Genesis Ceremony Dependencies
+awscli
+pwgen
+jq
+golang
+systemd-timesyncd
+python3-pip
