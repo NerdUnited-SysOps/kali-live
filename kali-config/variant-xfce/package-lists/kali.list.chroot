@@ -16,6 +16,7 @@ kali-desktop-live
 kali-desktop-xfce
 
 # Genesis Ceremony Dependencies
+systemd-timesyncd
 awscli
 pwgen
 jq
