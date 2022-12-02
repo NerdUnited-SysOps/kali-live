@@ -30,3 +30,4 @@ simple-cdd/profiles/kali.downloads
 .lock
 .stage
 prepare.log
+wget-log*
