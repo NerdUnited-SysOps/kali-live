@@ -20,5 +20,4 @@ awscli
 pwgen
 jq
 golang
-systemd-timesyncd
 python3-pip
