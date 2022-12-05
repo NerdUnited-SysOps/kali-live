@@ -22,3 +22,7 @@ pwgen
 jq
 golang
 python3-pip
+curl
+ansible
+nodejs
+npm
