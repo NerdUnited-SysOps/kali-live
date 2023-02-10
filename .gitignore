@@ -10,6 +10,7 @@ local/*
 simple-cdd/images/*
 simple-cdd/tmp/*
 # Files
+.DS_Store
 .mirror
 build.log
 chroot.files
