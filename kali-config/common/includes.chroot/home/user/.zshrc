@@ -20,13 +20,12 @@ chownuser
 nmcli radio wifi off
 
 if [ -f system_started ]; then
-  mv system_started user_started
 # Setup panel shortcut
   mv ~/.config/xfce4/panel/launcher-6/blockexplorer.desktop_ ~/.config/xfce4/panel/launcher-6/blockexplorer.desktop > /dev/null 2>&1
-
 # make a dir for usb mount point
   sudo mkdir /media/usb > /dev/null 2>&1
 # time sync and show ISO version, only the first time this boots up
+  rm ~/system_started
   timedatectl set-timezone America/Denver
   timedatectl set-ntp true
 # sleep 1 second to allow for time sync
@@ -35,8 +34,6 @@ if [ -f system_started ]; then
   echo
   echo "!== CEREMONY LAPTOP INITIALIZATION IS COMPLETE !=="
   echo
-else
-  touch system_started
 fi
 
 cat ~/version
