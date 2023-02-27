@@ -1,4 +1,0 @@
-## xfce4-power-manager.xml
-
-## lines 10 and 12 have "-on-ac" params.
-## set these both to 0 so the screen won't go blank, and so the screensaver won't lock the screen
