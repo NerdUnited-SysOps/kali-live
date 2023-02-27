@@ -1,0 +1,4 @@
+qterminal.ini controls the terminal's transparency 
+
+Line 59 in [MainWindow]
+ApplicationTransparency=0
