@@ -2,11 +2,10 @@
 
 # Set aliases
 alias ll='ls -la --color=auto'
-alias count='f(){ find "$1" -type f | wc -l; unset -f f; }; f'
-alias cp2usb='f(){ sudo cp -vr "$1" /media/usb/ceremony/; unset -f f; }; f'
-alias findf='f(){ find "$1" -type f; unset -f f; }; f'
-alias mountusb='sudo fdisk -l; sudo mount /dev/sdb1 /media/usb; sudo mkdir /media/usb/ceremony > /dev/null 2>&1; df -h; echo'
-alias umountusb='sudo umount /media/usb; df -h; echo'
+alias lsblk='lsblk -p'
+alias cp='sudo cp "$@"'
+alias mountusb='~/mountusb.sh'
+alias umountusb='sudo umount /media/usb; lsblk; echo'
 alias chownuser='sudo chown -R user:user ~/.* ~/*'
 alias version='cat ~/version'
 export genesis=genesis.blockfabric.net
@@ -19,27 +18,26 @@ chownuser
 # do not modify this setting.  Doing so is counter to the intention and purpose of this ceremony laptop's configuration, which is to boot and remain "air gapped"
 nmcli radio wifi off
 
-if [ -f system_started ]; then
-# Setup panel shortcut
-  mv ~/.config/xfce4/panel/launcher-6/blockexplorer.desktop_ ~/.config/xfce4/panel/launcher-6/blockexplorer.desktop > /dev/null 2>&1
+if [ "$TERM" = "linux" ]; then
+## "linux" TERM means it's the first silent autologin to desktop, not a Terminal shell launch
+## run mkdir and chown commands only once at first bootup, not each time a new shell is launched
 # make a dir for usb mount point
   sudo mkdir /media/usb > /dev/null 2>&1
-# time sync and show ISO version, only the first time this boots up
-  rm ~/system_started
+  sudo chown user:user /media/usb > /dev/null 2>&1
+else
+
+## These commands should run with every new Terminal shell
+# Setup Firefox panel shortcut for block explorer
+  mv -v ~/.config/xfce4/panel/launcher-6/blockexplorer.desktop_ ~/.config/xfce4/panel/launcher-6/blockexplorer.desktop > /dev/null 2>&1
+
   timedatectl set-timezone America/Denver
   timedatectl set-ntp true
-# sleep 1 second to allow for time sync
-  sleep 1
   timedatectl status
+  echo;echo
+  cat ~/version
   echo
-  echo "!== CEREMONY LAPTOP INITIALIZATION IS COMPLETE !=="
+  echo "!== DOUBLE CHECK THAT THE TIME IS SYNCED. HAVE FUN !=="
+  echo
+  echo -n "OS DATE & TIME: "; date '+%A,%B %d, %Y    %I:%M:%S %p'
   echo
 fi
-
-cat ~/version
-echo
-echo "!== DOUBLE CHECK THAT THE TIME IS SYNCED. HAVE FUN !=="
-echo
-echo -n "OS DATE & TIME: "; date '+%A,%B %d, %Y    %I:%M:%S %p'
-echo
-
