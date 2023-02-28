@@ -6,5 +6,5 @@ cat version
 echo
 echo
 echo -n "started "; date +%I:%M%p
-./build.sh $1 $2
+./build.sh "$@"
 echo -n "ended "; date +%I:%M%p
