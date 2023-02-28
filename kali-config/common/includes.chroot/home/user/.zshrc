@@ -15,15 +15,15 @@ PROMPT=$'%B%F{green}%n@%m%b%F{reset}:%B%F{blue}%~%b%F{reset}%(#.#.$) '
 
 chownuser
 
-# do not modify this setting.  Doing so is counter to the intention and purpose of this ceremony laptop's configuration, which is to boot and remain "air gapped"
-nmcli radio wifi off
 
 if [ "$TERM" = "linux" ]; then
-## "linux" TERM means it's the first silent autologin to desktop, not a Terminal shell launch
-## run mkdir and chown commands only once at first bootup, not each time a new shell is launched
-# make a dir for usb mount point
+  ## "linux" TERM means it's the first silent autologin to desktop, not a Terminal shell launch
+  ## run mkdir and chown commands only once at first bootup, not each time a new shell is launched
+  # make a dir for usb mount point
   sudo mkdir /media/usb > /dev/null 2>&1
-  sudo chown user:user /media/usb > /dev/null 2>&1
+  # do not modify this setting.  Doing so is counter to the intention and purpose of this ceremony laptop's configuration, which is to boot and remain "air gapped"
+  sudo nmcli radio wifi off
+
 else
 
 ## These commands should run with every new Terminal shell
