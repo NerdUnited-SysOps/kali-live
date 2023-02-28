@@ -10,7 +10,9 @@ echo "Enter the usb drive and partition (\"sd\" already provided) : "
 echo -n "example: /dev/sdb1 is showing above.  You should enter only \"b1\" : "
 read usb_device
 sudo mount /dev/sd$usb_device /media/usb
-
+if [ ! -e /media/usb/ceremony/ ]; then
+  sudo mkdir /media/usb/ceremony
+fi
 echo;echo
 echo "  === AFTER ==="
 lsblk -p
