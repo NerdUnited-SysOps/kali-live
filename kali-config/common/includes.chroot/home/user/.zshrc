@@ -6,6 +6,7 @@ alias lsblk='lsblk -p'
 alias cp='sudo cp "$@"'
 alias mountusb='~/mountusb.sh'
 alias umountusb='sudo umount /media/usb; lsblk; echo'
+alias sha='~/sha.sh $1'
 alias chownuser='sudo chown -R user:user ~/.* ~/*'
 alias version='cat ~/version'
 export genesis=genesis.blockfabric.net
