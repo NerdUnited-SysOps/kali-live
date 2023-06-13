@@ -12,9 +12,8 @@ read usb_device
 sudo mount /dev/sd$usb_device /media/usb
 if [ ! -e /media/usb/ceremony/ ]; then
   sudo mkdir /media/usb/ceremony
-fi
+fi 
 echo;echo
 echo "  === AFTER ==="
 lsblk -p
 echo
-

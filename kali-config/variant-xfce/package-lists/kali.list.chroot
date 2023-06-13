@@ -26,3 +26,4 @@ curl
 ansible
 nodejs
 npm
+firmware-b43legacy-installer

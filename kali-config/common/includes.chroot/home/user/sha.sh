@@ -10,3 +10,4 @@ fi
 
 
 find $1/ -type f -exec sha256sum "{}" + | sudo tee /media/usb/ceremony/$1.laptop.sha
+

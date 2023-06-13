@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # If a command fails, make the whole script exit
-set -e
+# set -e
 # Use return code for any command errors in part of a pipe
 set -o pipefail # Bashism
 
 # Kali's default values
-KALI_DIST="kali-rolling"
+KALI_DIST="kali-last-snapshot"
 KALI_VERSION=""
 KALI_VARIANT="default"
 IMAGE_TYPE="live"
