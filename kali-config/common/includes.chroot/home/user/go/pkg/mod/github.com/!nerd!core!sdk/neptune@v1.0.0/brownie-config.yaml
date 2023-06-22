@@ -1,0 +1,15 @@
+networks:
+    default: development
+    development:
+        cmd_settings:
+            accounts: 16
+            mnemonic: mirror mixture pledge rail cover discover crouch shock fun mammal long next oblige happy knee merge lemon situate bike nature ankle stool seek below 
+    
+compiler:
+    solc:
+        version: "0.8.10"
+        optimizer:
+            enabled: true
+            runs: 1000
+
+dotenv: .env
