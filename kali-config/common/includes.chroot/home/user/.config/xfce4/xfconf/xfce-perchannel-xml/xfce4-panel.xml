@@ -81,7 +81,7 @@
     <property name="plugin-18" type="string" value="power-manager-plugin"/>
     <property name="plugin-19" type="string" value="clock">
       <property name="digital-layout" type="uint" value="3"/>
-      <property name="digital-format" type="string" value="           %A, %B %d, %Y      %I:%M:%S  %p"/>
+      <property name="digital-time-format" type="string" value="           %A, %B %d, %Y      %I:%M:%S%P %Z"/>
       <property name="digital-time-font" type="string" value="Cantarell 11"/>
     </property>
     <property name="plugin-20" type="string" value="separator">
