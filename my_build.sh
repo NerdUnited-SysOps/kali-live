@@ -1,5 +1,6 @@
 #!/usr/bin/zsh
 sudo rm -vf images/*
+sudo rm -rf config/includes.chroot/home/user/go/
 echo
 echo
 cat version
