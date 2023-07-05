@@ -34,16 +34,16 @@ if [ "$TERM" = "linux" ]; then
 else
 
 ## These commands should run with every new Terminal shell
-# Setup Firefox panel shortcut for block explorer
+# Setup Firefox panel shortcut for block explorer, remove bookmarks visibility
   mv -v ~/.config/xfce4/panel/launcher-6/blockexplorer.desktop_ ~/.config/xfce4/panel/launcher-6/blockexplorer.desktop > /dev/null 2>&1
-
+  sed -i "s/always/never/g" $HOME/.mozilla/firefox/p8awc088.default-esr/prefs.js > /dev/null 2>&1
   timedatectl set-timezone America/Denver
   timedatectl set-ntp true
   timedatectl status
   echo;echo
   cat ~/version
   echo
-  echo "!== DOUBLE CHECK THAT THE TIME IS SYNCED. HAVE FUN !=="
+  echo "!== DOUBLE CHECK THAT THE CLOCK IS SYNCED. HAVE FUN !=="
   echo
   echo -n "OS DATE & TIME: "; date '+%A,%B %d, %Y    %I:%M:%S %p'
   echo
