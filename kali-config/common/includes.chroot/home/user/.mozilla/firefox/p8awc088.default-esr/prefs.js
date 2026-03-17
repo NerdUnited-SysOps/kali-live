@@ -44,7 +44,7 @@ user_pref("browser.safebrowsing.provider.mozilla.lastupdatetime", "1674253914890
 user_pref("browser.safebrowsing.provider.mozilla.nextupdatetime", "1674275514890");
 user_pref("browser.sessionstore.upgradeBackup.latestBuildID", "20230529170948");
 user_pref("browser.startup.couldRestoreSession.count", 2);
-user_pref("browser.startup.homepage", "https://explore.network.brand.blockfabric.net");
+user_pref("browser.startup.homepage", "https://chain.elevatescan.com");
 user_pref("browser.startup.homepage_override.buildID", "20230529170948");
 user_pref("browser.startup.homepage_override.mstone", "102.12.0");
 user_pref("browser.startup.lastColdStartupCheck", 1688158794);
