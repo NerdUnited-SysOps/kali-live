@@ -50,6 +50,8 @@ more memory and vcpus will make the build faster
 
 
 ```console
+sudo apt update
+sudo apt install -y git live-build simple-cdd cdebootstrap curl
 git clone https://github.com/NerdUnited-SysOps/kali-live.git
 cd kali-live
 ./build.sh --verbose
