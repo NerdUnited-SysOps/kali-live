@@ -1,7 +1,7 @@
 # Live image
 # You always want these:
 kali-linux-core
-kali-desktop-live
+#kali-desktop-live
 
 # Metapackages
 # You can customize the set of Kali metapackages (groups of tools) to install
@@ -20,8 +20,8 @@ systemd-timesyncd
 awscli
 pwgen
 jq
-golang
-python3-pip
+#golang
+#python3-pip
 curl
 ansible
 nodejs
