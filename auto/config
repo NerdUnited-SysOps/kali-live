@@ -125,10 +125,11 @@ fi
 
 lb config noauto \
   --apt-indices=false \
+  --apt-recommends false \
   --distribution "$dist" \
   --debian-installer-distribution "$dist" \
   --archive-areas "main contrib non-free non-free-firmware" \
-  --debootstrap-options "--keyring=/usr/share/keyrings/kali-archive-keyring.gpg" \
+  --debootstrap-options "--variant=minbase --keyring=/usr/share/keyrings/kali-archive-keyring.gpg" \
   --keyring-packages kali-archive-keyring \
   --updates false \
   --backports false \
