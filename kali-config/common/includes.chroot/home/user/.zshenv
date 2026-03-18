@@ -1,1 +1,1 @@
-export PATH="$PATH:/home/user/.config/.foundry/bin"
+export PATH="$PATH:/home/user/.foundry/bin"
