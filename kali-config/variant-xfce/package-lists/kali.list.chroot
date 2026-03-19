@@ -25,3 +25,5 @@ jq
 curl
 ansible
 nodejs
+nano
+fdisk
