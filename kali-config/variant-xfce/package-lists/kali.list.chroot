@@ -20,7 +20,7 @@ systemd-timesyncd
 awscli
 pwgen
 jq
-#golang
+golang
 #python3-pip
 curl
 ansible
