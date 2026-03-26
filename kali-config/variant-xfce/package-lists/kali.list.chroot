@@ -27,3 +27,4 @@ ansible
 nodejs
 nano
 fdisk
+iputils-ping
