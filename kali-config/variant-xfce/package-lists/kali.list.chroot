@@ -29,4 +29,5 @@ nano
 fdisk
 iputils-ping
 yubikey-manager
+fido2-tools
 expect
