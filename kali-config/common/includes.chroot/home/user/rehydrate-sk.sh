@@ -17,7 +17,6 @@ fi
 
 echo "Recovering resident keys"
 
-
 EXPECT_STATUS=0
 export PIN
 
@@ -30,22 +29,22 @@ set pin $env(PIN)
 spawn ssh-keygen -K -N ""
 
 expect {
-    -re "(?i)Enter PIN.*:" {
-        send -- "$pin\r"
-        exp_continue
-    }
-    -re "(?i)confirm passphrase.*:" {
-        send -- "\r"
-        exp_continue
-    }
-    -re "(?i)enter passphrase.*:" {
-        send -- "\r"
-        exp_continue
-    }
-    -re "(?i)touch your security key" {
-        exp_continue
-    }
-    eof
+  -re "(?i)Enter PIN.*:" {
+    send -- "$pin\r"
+    exp_continue
+  }
+  -re "(?i)confirm passphrase.*:" {
+    send -- "\r"
+    exp_continue
+  }
+  -re "(?i)enter passphrase.*:" {
+    send -- "\r"
+    exp_continue
+  }
+  -re "(?i)touch your security key" {
+    exp_continue
+  }
+  eof
 }
 catch wait result
 set exit_status [lindex $result 3]
@@ -59,19 +58,33 @@ if [[ "$EXPECT_STATUS" -ne 0 ]]; then
   exit "$EXPECT_STATUS"
 fi
 
-shopt -s nullglob
-recovered=(id_ed25519_sk_rk id_ed25519_sk_rk.pub)
-shopt -u nullglob
+# Check what actually landed on disk
+have_ed25519=false
+have_ecdsa=false
+[[ -f "id_ed25519_sk_rk" ]] && have_ed25519=true
+[[ -f "id_ecdsa_sk_rk"   ]] && have_ecdsa=true
 
-if [[ "${#recovered[@]}" -eq 0 ]]; then
+if ! $have_ed25519 && ! $have_ecdsa; then
   echo "No keys were recovered." >&2
   exit 1
 fi
 
-mv ./id_ed25519_sk_rk "$DEST_DIR/id_ed25519_sk"
-mv ./id_ed25519_sk_rk.pub "$DEST_DIR/id_ed25519_sk.pub"
+# Install ed25519 keys (YubiKey / ed25519-capable devices)
+if $have_ed25519; then
+  mv ./id_ed25519_sk_rk     "$DEST_DIR/id_ed25519_sk"
+  mv ./id_ed25519_sk_rk.pub "$DEST_DIR/id_ed25519_sk.pub"
+  chmod 600 "$DEST_DIR/id_ed25519_sk"
+  chmod 644 "$DEST_DIR/id_ed25519_sk.pub"
+  echo "  ed25519-sk keys saved to: $DEST_DIR"
+fi
 
-chmod 600 "$DEST_DIR/id_ed25519_sk"
-chmod 644 "$DEST_DIR/id_ed25519_sk.pub"
+# Install ecdsa keys (FIDO2 devices that only support ecdsa)
+if $have_ecdsa; then
+  mv ./id_ecdsa_sk_rk     "$DEST_DIR/id_ecdsa_sk"
+  mv ./id_ecdsa_sk_rk.pub "$DEST_DIR/id_ecdsa_sk.pub"
+  chmod 600 "$DEST_DIR/id_ecdsa_sk"
+  chmod 644 "$DEST_DIR/id_ecdsa_sk.pub"
+  echo "  ecdsa-sk keys saved to: $DEST_DIR"
+fi
 
-echo "Recovered keys saved to: $DEST_DIR"
+echo "Done."
