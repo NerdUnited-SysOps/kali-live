@@ -2,13 +2,87 @@
 <channel name="xfce4-desktop" version="1.0">
   <property name="backdrop" type="empty">
     <property name="screen0" type="empty">
+      <!-- VMs: VirtualBox / QEMU / KVM -->
       <property name="monitorVirtual-1" type="empty">
         <property name="workspace0" type="empty">
           <property name="image-path" type="string" value="/usr/share/backgrounds/kali-16x9/default"/>
           <property name="image-style" type="int" value="5"/>
           <property name="image-show" type="bool" value="true"/>
-          <property name="color-style" type="int" value="0"/>
-          <property name="rgba1" type="string" value="#27272767676700000000"/>
+        </property>
+      </property>
+      <!-- HDMI outputs -->
+      <property name="monitorHDMI-1" type="empty">
+        <property name="workspace0" type="empty">
+          <property name="image-path" type="string" value="/usr/share/backgrounds/kali-16x9/default"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="image-show" type="bool" value="true"/>
+        </property>
+      </property>
+      <property name="monitorHDMI-2" type="empty">
+        <property name="workspace0" type="empty">
+          <property name="image-path" type="string" value="/usr/share/backgrounds/kali-16x9/default"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="image-show" type="bool" value="true"/>
+        </property>
+      </property>
+      <property name="monitorHDMI-A-1" type="empty">
+        <property name="workspace0" type="empty">
+          <property name="image-path" type="string" value="/usr/share/backgrounds/kali-16x9/default"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="image-show" type="bool" value="true"/>
+        </property>
+      </property>
+      <!-- DisplayPort outputs -->
+      <property name="monitorDP-1" type="empty">
+        <property name="workspace0" type="empty">
+          <property name="image-path" type="string" value="/usr/share/backgrounds/kali-16x9/default"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="image-show" type="bool" value="true"/>
+        </property>
+      </property>
+      <property name="monitorDP-2" type="empty">
+        <property name="workspace0" type="empty">
+          <property name="image-path" type="string" value="/usr/share/backgrounds/kali-16x9/default"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="image-show" type="bool" value="true"/>
+        </property>
+      </property>
+      <property name="monitorDP-1-1" type="empty">
+        <property name="workspace0" type="empty">
+          <property name="image-path" type="string" value="/usr/share/backgrounds/kali-16x9/default"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="image-show" type="bool" value="true"/>
+        </property>
+      </property>
+      <!-- Embedded DisplayPort (laptops) -->
+      <property name="monitoreDP-1" type="empty">
+        <property name="workspace0" type="empty">
+          <property name="image-path" type="string" value="/usr/share/backgrounds/kali-16x9/default"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="image-show" type="bool" value="true"/>
+        </property>
+      </property>
+      <property name="monitoreDP-2" type="empty">
+        <property name="workspace0" type="empty">
+          <property name="image-path" type="string" value="/usr/share/backgrounds/kali-16x9/default"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="image-show" type="bool" value="true"/>
+        </property>
+      </property>
+      <!-- VGA -->
+      <property name="monitorVGA-1" type="empty">
+        <property name="workspace0" type="empty">
+          <property name="image-path" type="string" value="/usr/share/backgrounds/kali-16x9/default"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="image-show" type="bool" value="true"/>
+        </property>
+      </property>
+      <!-- VMware -->
+      <property name="monitorVMware SVGA II Adapter" type="empty">
+        <property name="workspace0" type="empty">
+          <property name="image-path" type="string" value="/usr/share/backgrounds/kali-16x9/default"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="image-show" type="bool" value="true"/>
         </property>
       </property>
     </property>
