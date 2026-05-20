@@ -1,0 +1,6 @@
+#!/bin/sh
+# xfdesktop 4.20 falls back to /usr/share/images/desktop-base/default when no
+# monitor-specific xfconf key is set. desktop-base was removed to reduce ISO size,
+# so we recreate just this one fallback symlink pointing at the Kali wallpaper.
+mkdir -p /usr/share/images/desktop-base
+ln -sf /usr/share/backgrounds/kali-16x9/default /usr/share/images/desktop-base/default
