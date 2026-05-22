@@ -1,13 +1,7 @@
 ##
-## Install packages required for virtualization support.
+## Virtualization guest support.
+## Trimmed to Proxmox/QEMU-KVM only -- ISO is deployed bare-metal for ceremonies.
+## VirtualBox, Hyper-V, VMware, and xrdp removed.
 ##
-#if ARCHITECTURES amd64 i386
-hyperv-daemons
-virtualbox-guest-x11
-#endif
-#if ARCHITECTURES amd64 i386 arm64
-open-vm-tools-desktop
-#endif
 qemu-guest-agent
 spice-vdagent
-xrdp

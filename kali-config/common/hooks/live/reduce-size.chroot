@@ -1,13 +1,29 @@
 #!/bin/sh
 
-# try to make the iso smaller by removing stuff we don't need.
-
+# Remove apt caches and package lists
 apt clean
 rm -rf /var/cache/apt/*
 rm -rf /var/lib/apt/lists/*
 
+# Remove docs and man pages
 rm -rf /usr/share/doc/*
 rm -rf /usr/share/man/*
 rm -rf /usr/share/info/*
 
+# Remove non-English locales
 find /usr/share/locale -mindepth 1 -maxdepth 1 ! -name "en*" -exec rm -rf {} +
+
+# Remove Go module/build cache (go/bin/ binaries are kept)
+rm -rf /home/user/go/pkg/
+
+# Strip debug symbols from pre-compiled binaries to reduce size
+# Foundry (Rust) and Go binaries -- strip-debug is safe and preserves runtime info
+for bin in \
+    /home/user/.foundry/versions/stable/anvil \
+    /home/user/.foundry/versions/stable/cast \
+    /home/user/.foundry/versions/stable/chisel \
+    /home/user/.foundry/versions/stable/forge \
+    /home/user/go/bin/geth \
+    /home/user/go/bin/ethkey; do
+    [ -f "$bin" ] && strip --strip-debug "$bin" && echo "stripped: $bin" || true
+done
