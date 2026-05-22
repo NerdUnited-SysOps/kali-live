@@ -2,3 +2,9 @@
 
 apt -y remove desktop-base tango-icon-theme xorg
 apt -y autoremove
+
+# Recreate the xfdesktop fallback wallpaper path.
+# desktop-base removal destroys /usr/share/images/desktop-base/ so we
+# recreate it here, AFTER the removal, so it survives into the live image.
+mkdir -p /usr/share/images/desktop-base
+ln -sf /usr/share/backgrounds/kali-16x9/blockchain_1.png /usr/share/images/desktop-base/default

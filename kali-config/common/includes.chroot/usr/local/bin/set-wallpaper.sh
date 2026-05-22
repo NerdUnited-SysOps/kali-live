@@ -1,10 +1,9 @@
 #!/bin/bash
 # set-wallpaper.sh - Apply custom wallpaper to all connected monitors at login.
-# Handles any monitor name that xrandr reports, including hardware not covered
-# by the static xfce4-desktop.xml entries.
+# Runs as XFCE autostart after xfdesktop starts. Handles any monitor name.
 WALLPAPER=/usr/share/backgrounds/kali-16x9/blockchain_1.png
 
-# Wait for xfconf daemon to be ready (it starts with the session but may lag)
+# Wait for xfconf daemon to be ready
 for i in $(seq 1 10); do
     xfconf-query -c xfce4-desktop -l >/dev/null 2>&1 && break
     sleep 1
@@ -23,3 +22,8 @@ for monitor in $monitors; do
     xfconf-query -c xfce4-desktop -p "${base}/image-style" -s 5           --create -t int
     xfconf-query -c xfce4-desktop -p "${base}/image-show"  -s true        --create -t bool
 done
+
+# Force xfdesktop to reload its backdrop config
+xfdesktop --reload 2>/dev/null || pkill -USR1 xfdesktop 2>/dev/null
+
+exit 0
