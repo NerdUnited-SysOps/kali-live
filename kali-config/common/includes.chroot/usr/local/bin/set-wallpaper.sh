@@ -2,7 +2,7 @@
 # set-wallpaper.sh - Apply custom wallpaper to all connected monitors at login.
 # Handles any monitor name that xrandr reports, including hardware not covered
 # by the static xfce4-desktop.xml entries.
-WALLPAPER=/usr/share/backgrounds/kali-16x9/default
+WALLPAPER=/usr/share/backgrounds/kali-16x9/blockchain_1.png
 
 # Wait for xfconf daemon to be ready (it starts with the session but may lag)
 for i in $(seq 1 10); do
